@@ -46,13 +46,15 @@
 
 
 (defun live-py-show-output-window ()
-  (delete-other-windows)
-  (get-buffer-create live-py-output-buffer)
-  (with-current-buffer live-py-output-buffer
-    (toggle-truncate-lines 1))
-  (set (make-local-variable 'live-py-output-window)
-       (split-window-horizontally))
-  (set-window-buffer live-py-output-window live-py-output-buffer))
+  (let ((code-text-scale-amount text-scale-mode-amount))
+       (delete-other-windows)
+       (get-buffer-create live-py-output-buffer)
+       (with-current-buffer live-py-output-buffer
+         (text-scale-set code-text-scale-amount)
+         (toggle-truncate-lines 1))
+       (set (make-local-variable 'live-py-output-window)
+            (split-window-horizontally))
+       (set-window-buffer live-py-output-window live-py-output-buffer)))
 
 
 (define-minor-mode live-py-mode
