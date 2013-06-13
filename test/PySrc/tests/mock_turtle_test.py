@@ -13,7 +13,9 @@ create_line
     0
     100
     0
-    fill='black'"""
+    fill='black'
+    pensize=1
+"""
         
         # EXEC
         t = MockTurtle()
@@ -31,7 +33,9 @@ create_line
     0
     0
     100
-    fill='black'"""
+    fill='black'
+    pensize=1
+"""
         
         # EXEC
         t = MockTurtle()
@@ -51,12 +55,15 @@ create_line
     100
     0
     fill='black'
+    pensize=1
 create_line
     150
     0
     350
     0
-    fill='black'"""
+    fill='black'
+    pensize=1
+"""
         
         # EXEC
         t = MockTurtle()
@@ -92,7 +99,9 @@ create_line
     300
     500
     300
-    fill='black'"""
+    fill='black'
+    pensize=1
+"""
 
         
         # EXEC
@@ -112,12 +121,15 @@ create_line
     100
     0
     fill='black'
+    pensize=1
 create_line
     100
     0
     100
     150
-    fill='black'"""
+    fill='black'
+    pensize=1
+"""
 
         
         # EXEC
@@ -142,7 +154,9 @@ create_line
     300
     500
     300
-    fill='black'"""
+    fill='black'
+    pensize=1
+"""
 
         
         # EXEC
@@ -177,13 +191,15 @@ create_line
     100
     0
     fill='black'
+    pensize=1
 create_text
     100
     0
-    text='Bob'
-    font=('Arial', 8, 'normal')
     anchor='sw'
-    fill='black'"""
+    fill='black'
+    font=('Arial', 8, 'normal')
+    text='Bob'
+"""
         
         # EXEC
         t = MockTurtle()
@@ -202,7 +218,8 @@ create_line
     0
     100
     0
-    fill='#ff0080'"""
+    fill='#ff0080'
+    pensize=1"""
         
         # EXEC
         t = MockTurtle()
@@ -223,20 +240,22 @@ create_polygon
     0
     100
     100
-    outline=''
     fill='#0000ff'
+    outline=''
 create_line
     0
     0
     100
     0
     fill='#ff0000'
+    pensize=1
 create_line
     100
     0
     100
     100
-    fill='#ff0000'"""
+    fill='#ff0000'
+    pensize=1"""
         
         # EXEC
         t = MockTurtle()
@@ -260,12 +279,15 @@ create_line
     100
     0
     fill='#ff0000'
+    pensize=1
 create_line
     100
     0
     100
     100
-    fill='#ff0000'"""
+    fill='#ff0000'
+    pensize=1
+"""
         
         # EXEC
         t = MockTurtle()

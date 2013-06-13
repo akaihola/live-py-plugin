@@ -31,20 +31,22 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.osgi.framework.Bundle;
 import org.python.pydev.core.IPythonNature;
 import org.python.pydev.core.MisconfigurationException;
-import org.python.pydev.core.bundle.BundleUtils;
 import org.python.pydev.core.log.Log;
 import org.python.pydev.editor.PyEdit;
 import org.python.pydev.editor.codefolding.PySourceViewer;
 import org.python.pydev.runners.UniversalRunner;
 import org.python.pydev.runners.UniversalRunner.AbstractRunner;
+import org.python.pydev.shared_core.io.FileUtils;
+import org.python.pydev.shared_core.structure.Tuple;
+import org.python.pydev.shared_ui.bundle.BundleUtils;
+import org.python.pydev.shared_ui.editor.BaseEditor;
 
-import com.aptana.shared_core.io.FileUtils;
-import com.aptana.shared_core.structure.Tuple;
 
 /**
  * This actually runs the Python code and displays the analysis.
@@ -111,7 +113,12 @@ public class LiveCodingAnalyst {
 	 * @return The new control that the editor can be created in.
 	 */
 	public Object createPartControl(Composite parent) {
+		parent.setLayout(new GridLayout());
+		parent.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));             
+
 		splitter = new Splitter(parent, SWT.HORIZONTAL);
+		splitter.setLayout(new FillLayout());
+		splitter.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));           
 		
 		Composite editorContent = new Composite(splitter, SWT.NONE);
 		editorContent.setLayout(new FillLayout());
@@ -222,7 +229,7 @@ public class LiveCodingAnalyst {
 	 */
 	public void onSetDocument(
 			IDocument document, 
-			PyEdit edit,
+			BaseEditor edit,
 			IProgressMonitor monitor) {
 		mainDocument = document;
 		// TODO: Why does getAction always return null?

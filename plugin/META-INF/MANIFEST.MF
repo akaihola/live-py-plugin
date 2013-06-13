@@ -2,15 +2,16 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Live-Py
 Bundle-SymbolicName: live-py;singleton:=true
-Bundle-Version: 2.4.0.qualifier
+Bundle-Version: 2.6.0.qualifier
 Bundle-Activator: live_py.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.ui.workbench.texteditor,
  org.eclipse.ui.ide,
- org.python.pydev,
- org.python.pydev.core,
- org.eclipse.ui.editors;bundle-version="3.7.0"
+ org.python.pydev;bundle-version="2.7.5",
+ org.python.pydev.core;bundle-version="2.7.5",
+ org.eclipse.ui.editors;bundle-version="3.7.0",
+ org.python.pydev.shared_ui;bundle-version="2.7.5"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.eclipse.compare,

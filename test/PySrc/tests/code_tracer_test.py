@@ -686,6 +686,7 @@ create_line
     100
     0
     fill='black'
+    pensize=1
 """
         tracer = CodeTracer()
         
@@ -884,6 +885,52 @@ n = 1
 
         # VERIFY
         self.assertEqual(expected_report.splitlines(), report.splitlines())
+
+    def test_return_tuple(self):
+        # SETUP
+        code = """\
+def f():
+    return (1, 2)
+
+x = f()
+"""
+        expected_report = """\
+
+return (1, 2) 
+
+x = (1, 2) """
+        # EXEC
+        report = CodeTracer().trace_code(code)
+
+        # VERIFY        
+        self.assertEqual(report, expected_report)
+
+    def test_multiline_exception(self):
+        # SETUP
+        code = """\
+x = (
+     '')
+y = 2
+z = 1/0
+"""
+        expected_report_python2 = """\
+x = '' 
+
+y = 2 
+ZeroDivisionError: integer division or modulo by zero """
+        expected_report_python3 = """\
+x = '' 
+
+y = 2 
+ZeroDivisionError: division by zero """
+        expected_report = (expected_report_python3 
+                           if version_info.major >= 3
+                           else expected_report_python2)
+        # EXEC
+        report = CodeTracer().trace_code(code)
+
+        # VERIFY        
+        self.assertEqual(report, expected_report)
 
 if __name__ == '__main__':
     unittest.main()

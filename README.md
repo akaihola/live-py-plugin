@@ -1,10 +1,13 @@
 live-py-plugin
 ==============
 
-Live coding in Python implemented as an Eclipse plugin and an Emacs minor mode.
+Live coding in Python implemented as an Eclipse plugin or an Emacs minor mode.
 
 To see how it works, watch the [demo video][video] or read the 
-[blog post][blog].
+[blog post][blog]. You might also find some useful examples in the 
+[tools folder][tools].
+
+If you like this project, check out some of my [other projects][projects].
 
 Installing the Eclipse plugin
 -----------------------------
@@ -48,9 +51,9 @@ Installing the Emacs mode
    which is in your Emacs `load-path`. For example:
 
         cd live-py-plugin
-        cp emacs-live-py-mode/live-py-mode.el plugin/PySrc/{canvas,exec_python2,mock_turtle,report_builder}.py ~/.emacs.d/
+        cp emacs-live-py-mode/live-py-mode.el plugin/PySrc/*.py ~/.emacs.d/
 
-   Assuming ~/.emacs.d/ is added your `load-path` in `~/.emacs.d/init.el` or `~/.emacs`:
+   Add ~/.emacs.d/ to your `load-path` in `~/.emacs.d/init.el` or `~/.emacs`:
 
         (add-to-list 'load-path "~/.emacs.d")
 4. Load the Lisp library in your `~/.emacs.d/init.el` or `~/.emacs`:
@@ -65,8 +68,6 @@ Uninstalling the Emacs mode
 ---------------------------
 
 1. Remove the files you copied into `~/.emacs.d/`:
-
-        rm ~/.emacs.d/{live-py-mode.el,{canvas,exec_python2,mock_turtle,report_builder}.py
 2. Revert additions to `~/.emacs.d/init.el` or `~/.emacs`.
 3. Restart Emacs.
 
@@ -88,6 +89,7 @@ To do
 - Any syntax error currently blanks out the results, should just show previous 
 result with error marker.
 - Run `code_tracer.py` asynchronously so the editor doesn't block (Emacs only).
+- Also see the [issues list][issues].
 
 Creating an Install Package for the Eclipse plugin
 --------------------------------------------------
@@ -102,3 +104,6 @@ Creating an Install Package for the Eclipse plugin
 [video]: http://www.youtube.com/watch?v=LV3aFRHlAEQ
 [blog]: http://donkirkby.blogspot.ca/2012/11/live-coding-in-python-v2.html
 [emacs]: http://www.gnu.org/software/emacs/
+[tools]: https://github.com/donkirkby/live-py-plugin/tree/master/test/PySrc/tools
+[issues]: https://github.com/donkirkby/live-py-plugin/issues?state=open
+[projects]: http://donkirkby.github.io/
